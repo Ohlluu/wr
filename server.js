@@ -43,6 +43,15 @@ db.serialize(() => {
   // Insert main admin code if it doesn't exist
   db.run(`INSERT OR IGNORE INTO admin_codes (code, sub_admin_name, is_main_admin)
           VALUES ('MAIN_ADMIN_2024', 'Main Administrator', TRUE)`);
+
+  // Insert sample events based on Westside Rising's actual programming
+  db.run(`INSERT OR IGNORE INTO events (id, title, description, date, time, location, created_by_code, created_by_name)
+          VALUES
+          (1, 'Together WE Rise Holiday Soiree', 'Join us for our annual holiday celebration honoring collaboration and community partnerships on Chicago''s Greater West Side.', '2024-12-15', '18:00', 'West Side Community Center', 'MAIN_ADMIN_2024', 'Main Administrator'),
+          (2, 'Light Up Lawndale', 'Our annual community holiday lighting event bringing families together with free food, games, and bouncy houses for the kids.', '2024-12-07', '17:30', 'Lawndale Community Park', 'MAIN_ADMIN_2024', 'Main Administrator'),
+          (3, 'Juneteenth Celebration', 'Celebrate our heritage with music, art, educational activities, and community fellowship honoring African American culture and freedom.', '2024-06-19', '14:00', 'Douglas Park', 'MAIN_ADMIN_2024', 'Main Administrator'),
+          (4, 'Restorative Justice Summit', 'Multi-day event focused on peace, justice, and healing in our communities. Open to all residents and community organizations.', '2024-10-12', '09:00', 'West Side Cultural Center', 'MAIN_ADMIN_2024', 'Main Administrator'),
+          (5, 'Community Resource Fair', 'Free food distribution, back-to-school supplies, clothing giveaway, free haircuts, and family activities with bouncy houses.', '2024-08-24', '11:00', 'Local School Gymnasium', 'MAIN_ADMIN_2024', 'Main Administrator')`);
 });
 
 // API Routes
